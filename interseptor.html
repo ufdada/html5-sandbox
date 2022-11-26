@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            font-size: 2em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        section {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+
+        section > div {
+            transition: all 1s;
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+<body>
+    <section>
+        <div>
+            <h1>First Section</h1>
+            <p>This is awesome</p>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h1>Second Section</h1>
+            <p>This is awesome</p>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h1>Third Section</h1>
+            <p>This is awesome</p>
+        </div>
+    </section>
+
+    <script defer>
+        let observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry) => {
+                //let div = entry.target.querySelector("div");
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        });
+        let elements = document.querySelectorAll("section > div");
+        elements.forEach((element) => observer.observe(element));
+    </script>
+</body>
+</html>

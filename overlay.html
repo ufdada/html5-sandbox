@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue-filter: grayscale(1) brightness(0.80) contrast(1.1) sepia(100%) hue-rotate(160deg);
+            --green-filter: grayscale(1) brightness(0.80) contrast(1.1) sepia(100%) hue-rotate(60deg);
+            --blue-bg: #0B4262;
+            --green-bg: #0e620b;
+        }
+
+        .imageContainer:before {
+            content: " ";
+            width: 50%;
+            position: absolute;
+            right: 0;
+            height: 100%;
+            background-color: var(--blue-bg);
+            opacity: 0.8;
+            z-index: 10;
+        }
+
+        .colored {
+            filter: var(--blue-filter);
+        }
+        
+        .imageContainer {
+            position: relative;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 1000px;
+            overflow: hidden;
+        }
+
+        .bg {
+            width: 100%;
+            background-image: url('./img/pic1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="imageContainer">
+        <div class="colored bg"></div>
+    </div>
+</body>
+</html>

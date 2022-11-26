@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function toggleMenu(forceClose) {
+            let nav = document.querySelector("nav");
+
+            if (nav.classList.contains("showNav")) {
+                nav.classList.remove("showNav");
+            } else if (!forceClose) {
+                nav.classList.add("showNav");
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menuHeader a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .menuHeader a svg {
+            width: 24px;
+        }
+
+        .menuHeader a svg g {
+            fill: currentcolor;
+        }
+
+        .menuHeader a:hover {
+            font-weight: bold;
+            text-decoration: dotted;
+        }
+
+        .menuHeader {
+            background-color: firebrick;
+            color: #fff;
+            padding: 10px;
+            padding-right: 30px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            text-align: right;
+            z-index: 100000;
+            box-shadow: 0px 0px 2px black;
+        }
+
+        .menuButton {
+            margin-right: 30px;
+        }
+
+        .content {
+            height: 4000px;
+            padding: 100px 200px;
+        }
+
+        nav {
+            position: fixed;
+            left: 0;
+            background-color: darkred;
+            color: white;
+            height: 100%;
+            transition: all .3s ease-in-out;
+            transform: translateX(-100%);
+            width: 30vw;
+            z-index: 100200;
+        }
+
+        .showNav {
+            transform: translateX(0);
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 10px;
+        }
+
+        nav li:hover {
+            background-color: maroon;
+        }
+    </style>
+</head>
+<body>
+    <div class="menuHeader">
+        <div class="menuButton">
+            <a href="#" onclick="toggleMenu(false)">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <g>
+                        <path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z"></path>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ul>
+    </nav>
+    <section>
+        <div class="content" onclick="toggleMenu(true)">
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor dignissimos, molestiae delectus modi nobis error accusantium dolorem libero aliquid eligendi placeat molestias eum veritatis aspernatur et aut ut, quasi minus!
+                Autem amet magnam, optio quam, unde beatae dolorem neque ducimus ipsum aut facilis atque excepturi placeat modi quos similique corrupti blanditiis vel ipsam labore. Quasi optio minima incidunt dignissimos esse?
+                Voluptates eum, deserunt commodi id, ratione quisquam velit obcaecati ut quod vel minus maxime vitae esse delectus dolore est error voluptas? Reiciendis asperiores repellendus tempore harum neque veritatis, nulla totam.
+                Placeat molestiae possimus, veniam minima sit quia veritatis cupiditate dolores consequatur eum tempore, rerum, et praesentium dolorem suscipit pariatur! Dolorem deleniti odio nemo dolor labore cumque fugiat eveniet recusandae dolorum?
+                Consequatur consectetur et veritatis, officiis earum consequuntur dicta quis iure, blanditiis tempora maiores voluptatem quas, provident porro illo necessitatibus ab quisquam omnis? Voluptates illo tenetur nostrum perferendis asperiores, nulla qui.<br><br>
+            </p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor dignissimos, molestiae delectus modi nobis error accusantium dolorem libero aliquid eligendi placeat molestias eum veritatis aspernatur et aut ut, quasi minus!
+                Autem amet magnam, optio quam, unde beatae dolorem neque ducimus ipsum aut facilis atque excepturi placeat modi quos similique corrupti blanditiis vel ipsam labore. Quasi optio minima incidunt dignissimos esse?
+                Voluptates eum, deserunt commodi id, ratione quisquam velit obcaecati ut quod vel minus maxime vitae esse delectus dolore est error voluptas? Reiciendis asperiores repellendus tempore harum neque veritatis, nulla totam.
+                Placeat molestiae possimus, veniam minima sit quia veritatis cupiditate dolores consequatur eum tempore, rerum, et praesentium dolorem suscipit pariatur! Dolorem deleniti odio nemo dolor labore cumque fugiat eveniet recusandae dolorum?
+                Consequatur consectetur et veritatis, officiis earum consequuntur dicta quis iure, blanditiis tempora maiores voluptatem quas, provident porro illo necessitatibus ab quisquam omnis? Voluptates illo tenetur nostrum perferendis asperiores, nulla qui.<br><br>
+            </p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor dignissimos, molestiae delectus modi nobis error accusantium dolorem libero aliquid eligendi placeat molestias eum veritatis aspernatur et aut ut, quasi minus!
+                Autem amet magnam, optio quam, unde beatae dolorem neque ducimus ipsum aut facilis atque excepturi placeat modi quos similique corrupti blanditiis vel ipsam labore. Quasi optio minima incidunt dignissimos esse?
+                Voluptates eum, deserunt commodi id, ratione quisquam velit obcaecati ut quod vel minus maxime vitae esse delectus dolore est error voluptas? Reiciendis asperiores repellendus tempore harum neque veritatis, nulla totam.
+                Placeat molestiae possimus, veniam minima sit quia veritatis cupiditate dolores consequatur eum tempore, rerum, et praesentium dolorem suscipit pariatur! Dolorem deleniti odio nemo dolor labore cumque fugiat eveniet recusandae dolorum?
+                Consequatur consectetur et veritatis, officiis earum consequuntur dicta quis iure, blanditiis tempora maiores voluptatem quas, provident porro illo necessitatibus ab quisquam omnis? Voluptates illo tenetur nostrum perferendis asperiores, nulla qui.<br><br>
+            </p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor dignissimos, molestiae delectus modi nobis error accusantium dolorem libero aliquid eligendi placeat molestias eum veritatis aspernatur et aut ut, quasi minus!
+                Autem amet magnam, optio quam, unde beatae dolorem neque ducimus ipsum aut facilis atque excepturi placeat modi quos similique corrupti blanditiis vel ipsam labore. Quasi optio minima incidunt dignissimos esse?
+                Voluptates eum, deserunt commodi id, ratione quisquam velit obcaecati ut quod vel minus maxime vitae esse delectus dolore est error voluptas? Reiciendis asperiores repellendus tempore harum neque veritatis, nulla totam.
+                Placeat molestiae possimus, veniam minima sit quia veritatis cupiditate dolores consequatur eum tempore, rerum, et praesentium dolorem suscipit pariatur! Dolorem deleniti odio nemo dolor labore cumque fugiat eveniet recusandae dolorum?
+                Consequatur consectetur et veritatis, officiis earum consequuntur dicta quis iure, blanditiis tempora maiores voluptatem quas, provident porro illo necessitatibus ab quisquam omnis? Voluptates illo tenetur nostrum perferendis asperiores, nulla qui.<br><br>
+            </p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor dignissimos, molestiae delectus modi nobis error accusantium dolorem libero aliquid eligendi placeat molestias eum veritatis aspernatur et aut ut, quasi minus!
+                Autem amet magnam, optio quam, unde beatae dolorem neque ducimus ipsum aut facilis atque excepturi placeat modi quos similique corrupti blanditiis vel ipsam labore. Quasi optio minima incidunt dignissimos esse?
+                Voluptates eum, deserunt commodi id, ratione quisquam velit obcaecati ut quod vel minus maxime vitae esse delectus dolore est error voluptas? Reiciendis asperiores repellendus tempore harum neque veritatis, nulla totam.
+                Placeat molestiae possimus, veniam minima sit quia veritatis cupiditate dolores consequatur eum tempore, rerum, et praesentium dolorem suscipit pariatur! Dolorem deleniti odio nemo dolor labore cumque fugiat eveniet recusandae dolorum?
+                Consequatur consectetur et veritatis, officiis earum consequuntur dicta quis iure, blanditiis tempora maiores voluptatem quas, provident porro illo necessitatibus ab quisquam omnis? Voluptates illo tenetur nostrum perferendis asperiores, nulla qui.<br><br>
+            </p>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor dignissimos, molestiae delectus modi nobis error accusantium dolorem libero aliquid eligendi placeat molestias eum veritatis aspernatur et aut ut, quasi minus!
+                Autem amet magnam, optio quam, unde beatae dolorem neque ducimus ipsum aut facilis atque excepturi placeat modi quos similique corrupti blanditiis vel ipsam labore. Quasi optio minima incidunt dignissimos esse?
+                Voluptates eum, deserunt commodi id, ratione quisquam velit obcaecati ut quod vel minus maxime vitae esse delectus dolore est error voluptas? Reiciendis asperiores repellendus tempore harum neque veritatis, nulla totam.
+                Placeat molestiae possimus, veniam minima sit quia veritatis cupiditate dolores consequatur eum tempore, rerum, et praesentium dolorem suscipit pariatur! Dolorem deleniti odio nemo dolor labore cumque fugiat eveniet recusandae dolorum?
+                Consequatur consectetur et veritatis, officiis earum consequuntur dicta quis iure, blanditiis tempora maiores voluptatem quas, provident porro illo necessitatibus ab quisquam omnis? Voluptates illo tenetur nostrum perferendis asperiores, nulla qui.<br><br>
+            </p>
+        </div>
+    </section>
+</body>
+</html>
