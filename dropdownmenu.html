@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+			margin: 0;
+			padding: 0;
+            font-size: 2em;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+		
+		a { 
+			color: #333;
+			text-decoration: none;
+		}
+		
+		p {
+			margin: 0;
+			padding: 0;
+		}
+
+        section {
+            width: 100vw;
+            height: calc(100vh - 20px);
+            
+            justify-items: center;
+            align-content: center;
+			display: grid;
+        }
+		
+		article {
+			display: inline-flex;
+		}
+		
+		header {
+			width: 100%;
+			position: fixed;
+			top: 0;
+			height: 100px;
+			background-color: #efefef;
+			box-shadow: 0px 0px 5px black;
+		}
+
+		header nav {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			height: 100%;
+		}
+		
+		button {
+			font-size: 0.5em;
+			text-align: center;
+			border: none;
+		}
+
+		button:hover {
+			background-color: #fff;
+			cursor: pointer;
+		}
+
+		.submenu {
+			transition: all 0.5s;
+			visibility: hidden;
+			transform: translateY(100%);
+			opacity: 0;
+			position: absolute;
+			margin-top: 10px;
+			background-color: #efefef;
+			box-shadow: 0px 0px 5px black;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.submenu a {
+			padding: 10px;
+			display: block;
+		}
+
+		.submenu a:hover {
+			background-color: #fff;
+		}
+
+		header button:focus-within .submenu{
+			visibility: visible;
+			opacity: 1;
+			transform: translateY(0);
+		}
+    </style>
+</head>
+<body>
+	<header>
+		<nav>
+				<button value="Section1">
+					Section1
+					<div class="submenu">
+						<a href="#section1">Submenu 1</a>
+						<a href="#section1">Submenu 2</a>
+						<a href="#section1">Submenu 3</a>
+					</div>
+				</button>
+				<button value="Section1">
+					Section2
+					<div class="submenu">
+						<a href="#section2">Submenu 1</a>
+					</div>
+				</button>
+				<button><a href="#section3">Section3</a></button>
+		</nav>
+	</header>
+	<article>
+		<section id="section1">
+			<div>
+				<h1>First Section</h1>
+				<p>This is awesome</p>
+			</div>
+		</section>
+		<section id="section2">
+			<div>
+				<h1>Second Section</h1>
+				<p>This is awesome</p>
+			</div>
+		</section>
+		<section id="section3">
+			<div>
+				<h1>Third Section</h1>
+			</div>
+			<div>
+				<p>This is awesome</p>
+			</div>
+			<div>
+				<p>This is awesome 2</p>
+			</div>
+			<div>
+				<p>This is awesome 3</p>
+			</div>
+		</section>
+	</article>
+</body>
+</html>
