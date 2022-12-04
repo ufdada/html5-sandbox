@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            margin: 20pt;
+        }
+
+        input, progress {
+            display: block;
+            margin: 20px;
+        }
+    </style>
+
+    <style id="accent">
+        :root {
+            accent-color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Links:</p>
+    <ul>
+        <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color">MDN</a></li>
+    </ul>
+
+    <form action="">
+        <label>Choose Accent color:</label>
+        <input type="color" onchange="document.querySelector('style#accent').innerHTML = ':root { accent-color: ' + this.value + '}'" />
+        <label>Range:</label>
+        <input type="range">
+        <label>Progress:</label>
+        <progress max="100" value="70"></progress>
+        <label>Checkbox:</label>
+        <input type="checkbox" checked>
+        <label>Radio:</label>
+        <input type="radio" checked>
+    </form>
+</body>
+</html>
