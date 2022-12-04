@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            container-type: inline-size;
+            border: 1px dashed purple;
+        }
+
+        @container (min-width: 700px) {
+            .card {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        @container card (min-width: 700px) {
+            .card {
+                display: initial;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Card title</h2>
+            <p>Card content</p>
+        </div>
+    </div>
+    <!-- isn't affected, since it never gets over 700px -->
+    <div style="width: 600px">
+        <div class="container">
+            <div class="card">
+                <h2>Card title</h2>
+                <p>Card content</p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="container-name: card">
+        <div class="card">
+            <h2>Card title</h2>
+            <p>Card content</p>
+        </div>
+    </div>
+</body>
+
+</html>
