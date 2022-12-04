@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 20pt;
+            background-color: #333;
+            color: #fff;
+        }
+        section {
+            margin: 50px;
+            /*
+                content: add layout and paint, only check for content
+                layout: every child is scoped to this element
+                paint: no visible overflow
+                style: something like css counter doesn't affect the rest
+                size; children don't affect the size of the element, contain-intrinsic-size might be needed
+                strict: add "size layout paint style"
+            */
+            contain: content;
+        }
+        .skeleton {
+            display: inline-block;
+            background-color: #666;
+            width: calc(20px * (var(--letter) + 1));
+            height: 30px;
+            box-shadow: 0 0 6px 0 #a3a3a331;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>Header</div>
+    </header>
+    <p>Links:</p>
+    <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Containment" target="_blank">MDN</a></li>
+    </ul>
+    <main id="main">
+    </main>
+    <script>
+        let sections = 200;
+        let maxWordSize = 3;
+        let wordsInArticle = 300;
+        for (let i = 0; i < sections; i++) {
+            let section = document.createElement("section");
+            let words = [];
+            for (let j = 0; j < wordsInArticle; j++) {
+                let rnd = parseInt(Math.random() * maxWordSize);
+                let letters = (j % 5) * (1 + rnd);
+                words.push(`<span class="skeleton loading" style="--letter: ${letters}"></span>`);
+            }
+
+            section.innerHTML = words.join(" ");
+            document.getElementById("main").appendChild(section);
+        }
+    </script>
+</body>
+</html>
