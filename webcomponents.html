@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Links:
+    <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots" target="_blank">MDN</a></li>
+    </ul>
+
+    <template id="profile-card">
+        <style>
+            p {
+                color: white;
+                background-color: #666;
+                padding: 5px;
+            }
+            ::slotted(ul) {
+                color: red !important;
+            }
+        </style>
+        <p><slot name="text">My default text</slot></p>
+    </template>
+
+    <profile-card></profile-card>
+
+    <profile-card>
+        <ul slot="text">
+            <li>Let's have some different text!</li>
+            <li>In a list!</li>
+        </ul>
+    </profile-card>
+
+    <script>
+        customElements.define(
+        "profile-card",
+        class ProfileCard extends HTMLElement {
+            constructor() {
+                super();
+                let template = document.getElementById("profile-card");
+                let templateContent = template.content;
+          
+                const shadowRoot = this.attachShadow({ mode: "open" });
+                shadowRoot.appendChild(templateContent.cloneNode(true));
+            }
+        });
+    </script>
+</body>
+</html>
